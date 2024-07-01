@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 body {
     display: flex;
     justify-content: center;
@@ -9,8 +10,8 @@ body {
     font-family: 'Press Start 2P', sans-serif;
 }
 
-#difficultyScreen, #gameOverScreen {
-    display: flex;
+#Mainmenu, .overlay {
+    display: none;
     flex-direction: column;
     align-items: center;
     position: absolute;
@@ -18,16 +19,17 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: rgba(255, 255, 255, 0.8);
-    padding: 40px;
+    padding: 20px;
     border-radius: 10px;
     font-size: 24px;
     text-align: center;
     font-weight: bold;
     color: #333;
+    width: 500px;
 }
 
-#gameOverScreen {
-    display: none;
+#Mainmenu {
+    display: flex;
 }
 
 button {
@@ -57,24 +59,6 @@ canvas {
     display: block;
 }
 
-#highestScoresOverlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 9999;
-}
-
-#highestScores {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
+#about, #reset {
+    font-family: 'Times New Roman', Times, serif;
 }

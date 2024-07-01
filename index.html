@@ -7,29 +7,56 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="difficultyScreen">
-        <h2>Select Difficulty</h2>
+    <div id="Mainmenu">
+        <h2>Menu</h2>
+        <button onclick="startplay()">Start Play</button>
         <button onclick="showHighestScores()">Highest Scores</button>
+        <button onclick="showDifficultyScreen()">Difficulty</button>
+        <button onclick="showAbout()">About</button>
+        <button onclick="showReset()">Reset</button>
+    </div>
+
+    <div id="highestScoresOverlay" class="overlay">
+        <h2>Highest Scores</h2>
+        <p>Easy: <span id="easyScore">0</span></p>
+        <p>Hard: <span id="hardScore">0</span></p>
+        <p>Advanced: <span id="advancedScore">0</span></p>
+        <button onclick="closeOverlay()">Close</button>
+    </div>
+
+    <div id="difficultyScreen" class="overlay">
+        <h2>Select Difficulty</h2>
         <button onclick="startGame('easy')">Easy</button>
         <button onclick="startGame('hard')">Hard</button>
         <button onclick="startGame('advanced')">Advanced</button>
+        <button onclick="closeOverlay()">Close</button>
     </div>
-    <div id="highestScoresOverlay">
-        <div id="highestScores">
-            <h2>Highest Scores</h2>
-            <p>Easy: <span id="easyScore">0</span></p>
-            <p>Hard: <span id="hardScore">0</span></p>
-            <p>Advanced: <span id="advancedScore">0</span></p>
+
+    <div id="about" class="overlay">
+        <h2>About</h2>
+        <p>Flappy Bird is a 2013 casual mobile game developed by Vietnamese video game artist and programmer Dong Nguyen.</p>
+        <button onclick="closeOverlay()">Close</button>
+    </div>
+
+    <div id="reset" class="overlay">
+        <h3>Confirm Reset</h3>
+        <p>Are you sure you want to reset? This action cannot be undone.</p>
+        <div class="confirmBtn">
             <button onclick="closeOverlay()">Close</button>
+            <button onclick="confirmResetBtn()">Reset</button>
         </div>
-    </div>    
-    <canvas id="gameCanvas" width="800" height="600" style="display:none;"></canvas>
-    <div id="gameOverScreen">
-        <h2>Game Over</h2>
-        <p id="finalScore"></p>
-        <button onclick="restartGame()">Restart</button>
-        <button onclick="showMenu()">Menu</button>
     </div>
+
+    <canvas id="gameCanvas" width="800" height="600" style="display: none;"></canvas>
+
+    <div id="gameOverScreen" class="overlay">
+        <h2>Game Over</h2>
+        <hr>
+        <p id="finalScore"></p>
+        <button id="resetBtn" onclick="restartGame()">Restart</button>
+        <button onclick="showMainMenu()">Menu</button>
+    </div>
+
     <script src="flappy.js"></script>
 </body>
 </html>
