@@ -1,7 +1,9 @@
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 let birdImage = new Image();
-birdImage.src = 'https://via.placeholder.com/68x48';
+birdImage.src = 'assets/flappy_bird.gif';
+let backgroundImage = new Image();
+backgroundImage.src = 'assets/flappy_bird_backdrop.png';
 let bird = { x: 100, y: 150, width: 68, height: 48, gravity: 0.3, lift: -4, velocity: 0 };
 let pipes = [];
 let score = 0;
@@ -99,8 +101,6 @@ function checkCollisions() {
 function endGame() {
     clearInterval(gameInterval);
     document.removeEventListener('keydown', controlBird);
-    ctx.font = '48px Arial';
-    ctx.fillText('Game Over', canvas.width / 2 - 100, canvas.height / 2);
     
     document.getElementById('finalScore').innerText = 'Score: ' + score;
     document.getElementById('gameOverScreen').style.display = 'flex';
@@ -118,6 +118,7 @@ function showMenu() {
 
 function drawGame() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
     
     ctx.drawImage(birdImage, bird.x, bird.y, bird.width, bird.height);
     
