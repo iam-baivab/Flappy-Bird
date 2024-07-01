@@ -18,10 +18,20 @@
             border: 2px solid black;
             background-color: #87CEEB;
         }
-        #difficultyScreen {
+        #difficultyScreen, #gameOverScreen {
             display: flex;
             flex-direction: column;
             align-items: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        #gameOverScreen {
+            display: none;
         }
         button {
             margin: 10px;
@@ -39,6 +49,12 @@
         <button onclick="startGame('advanced')">Advanced</button>
     </div>
     <canvas id="gameCanvas" width="800" height="600" style="display:none;"></canvas>
+    <div id="gameOverScreen">
+        <h1>Game Over</h1>
+        <p id="finalScore"></p>
+        <button onclick="restartGame()">Restart</button>
+        <button onclick="showMenu()">Menu</button>
+    </div>
     <script src="flappy.js"></script>
 </body>
 </html>

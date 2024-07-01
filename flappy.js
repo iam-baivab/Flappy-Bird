@@ -8,10 +8,13 @@ let score = 0;
 let gameInterval;
 let difficultySettings;
 let countdown = 3;
+let currentDifficulty;
 
 function startGame(difficulty) {
     document.getElementById('difficultyScreen').style.display = 'none';
+    document.getElementById('gameOverScreen').style.display = 'none';
     canvas.style.display = 'block';
+    currentDifficulty = difficulty;
     
     switch(difficulty) {
         case 'easy':
@@ -98,6 +101,19 @@ function endGame() {
     document.removeEventListener('keydown', controlBird);
     ctx.font = '48px Arial';
     ctx.fillText('Game Over', canvas.width / 2 - 100, canvas.height / 2);
+    
+    document.getElementById('finalScore').innerText = 'Score: ' + score;
+    document.getElementById('gameOverScreen').style.display = 'flex';
+}
+
+function restartGame() {
+    startGame(currentDifficulty);
+}
+
+function showMenu() {
+    document.getElementById('difficultyScreen').style.display = 'flex';
+    canvas.style.display = 'none';
+    document.getElementById('gameOverScreen').style.display = 'none';
 }
 
 function drawGame() {
