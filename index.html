@@ -9,10 +9,20 @@
 <body>
     <div id="difficultyScreen">
         <h2>Select Difficulty</h2>
+        <button onclick="showHighestScores()">Highest Scores</button>
         <button onclick="startGame('easy')">Easy</button>
         <button onclick="startGame('hard')">Hard</button>
         <button onclick="startGame('advanced')">Advanced</button>
     </div>
+    <div id="highestScoresOverlay">
+        <div id="highestScores">
+            <h2>Highest Scores</h2>
+            <p>Easy: <span id="easyScore">0</span></p>
+            <p>Hard: <span id="hardScore">0</span></p>
+            <p>Advanced: <span id="advancedScore">0</span></p>
+            <button onclick="closeOverlay()">Close</button>
+        </div>
+    </div>    
     <canvas id="gameCanvas" width="800" height="600" style="display:none;"></canvas>
     <div id="gameOverScreen">
         <h2>Game Over</h2>

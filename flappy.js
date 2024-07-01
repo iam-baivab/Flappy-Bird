@@ -11,6 +11,21 @@ let gameInterval;
 let difficultySettings;
 let countdown = 3;
 let currentDifficulty;
+let highestScores = JSON.parse(localStorage.getItem('highestScores')) || {
+    easy: 0,
+    hard: 0,
+    advanced: 0
+};
+
+function saveHighestScores() {
+    localStorage.setItem('highestScores', JSON.stringify(highestScores));
+}
+
+function updateHighestScoresOverlay() {
+    document.getElementById('easyScore').textContent = highestScores.easy;
+    document.getElementById('hardScore').textContent = highestScores.hard;
+    document.getElementById('advancedScore').textContent = highestScores.advanced;
+}
 
 function startGame(difficulty) {
     document.getElementById('difficultyScreen').style.display = 'none';
@@ -102,7 +117,13 @@ function endGame() {
     clearInterval(gameInterval);
     document.removeEventListener('keydown', controlBird);
     
-    document.getElementById('finalScore').innerText = 'Score: ' + score;
+    if (score > highestScores[currentDifficulty]) {
+        highestScores[currentDifficulty] = score;
+        saveHighestScores();
+        updateHighestScoresOverlay();
+    }
+    
+    document.getElementById('finalScore').innerText = 'Score: ' + score + ' | Highest: ' + highestScores[currentDifficulty];
     document.getElementById('gameOverScreen').style.display = 'flex';
 }
 
@@ -114,6 +135,15 @@ function showMenu() {
     document.getElementById('difficultyScreen').style.display = 'flex';
     canvas.style.display = 'none';
     document.getElementById('gameOverScreen').style.display = 'none';
+}
+
+function showHighestScores() {
+    updateHighestScoresOverlay();
+    document.getElementById('highestScoresOverlay').style.display = 'block';
+}
+
+function closeOverlay() {
+    document.getElementById('highestScoresOverlay').style.display = 'none';
 }
 
 function drawGame() {
