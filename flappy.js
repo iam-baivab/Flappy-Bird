@@ -188,8 +188,17 @@ function hideAll() {
 function drawGame() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
+    ctx.save();
     
-    ctx.drawImage(birdImage, bird.x, bird.y, bird.width, bird.height);
+    ctx.translate(bird.x + bird.width / 2, bird.y + bird.height / 2);
+    if (bird.velocity >= 0) {
+        ctx.rotate(Math.min(bird.velocity * 0.05, 0.5));
+    } else {
+        ctx.rotate(Math.max(bird.velocity * 0.05, -0.5));
+    }
+    
+    ctx.drawImage(birdImage, -bird.width / 2, -bird.height / 2, bird.width, bird.height);
+    ctx.restore();
     
     pipes.forEach(pipe => {
         let gradient = ctx.createLinearGradient(pipe.x, 0, pipe.x + pipe.width, 0);
@@ -204,6 +213,7 @@ function drawGame() {
     ctx.font = '24px Arial';
     ctx.fillText('Score: ' + score, 10, 30);
 }
+
 
 window.addEventListener('keydown', function(e) {
     if(e.key === ' ' && e.target === document.body) {
