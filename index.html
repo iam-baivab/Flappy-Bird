@@ -5,53 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flappy Bird</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #87CEEB;
-            font-family: Arial, sans-serif;
-        }
-        #gameCanvas {
-            border: 2px solid black;
-            background-color: #87CEEB;
-        }
-        #difficultyScreen, #gameOverScreen {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-        }
-        #gameOverScreen {
-            display: none;
-        }
-        button {
-            margin: 10px;
-            padding: 10px 20px;
-            font-size: 18px;
-            cursor: pointer;
-        }
-    </style>
 </head>
 <body>
     <div id="difficultyScreen">
-        <h1>Select Difficulty</h1>
+        <h2>Select Difficulty</h2>
         <button onclick="startGame('easy')">Easy</button>
         <button onclick="startGame('hard')">Hard</button>
         <button onclick="startGame('advanced')">Advanced</button>
     </div>
     <canvas id="gameCanvas" width="800" height="600" style="display:none;"></canvas>
     <div id="gameOverScreen">
-        <h1>Game Over</h1>
+        <h2>Game Over</h2>
         <p id="finalScore"></p>
         <button onclick="restartGame()">Restart</button>
         <button onclick="showMenu()">Menu</button>
