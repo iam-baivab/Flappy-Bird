@@ -79,19 +79,26 @@ function startGame(difficulty) {
     bird.velocity = 0;
     countdown = 3;
 
+    // Display static background and bird during countdown
+    drawStaticGame();
+
     let countdownInterval = setInterval(() => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawStaticGame();
+        ctx.font = '48px Arial';
         if (countdown > 0) {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.font = '48px Arial';
-            ctx.fillText(countdown, canvas.width / 2, canvas.height / 2);
-            countdown--;
+            ctx.fillText(countdown, canvas.width / 2 - 10, canvas.height / 2);
         } else {
+            ctx.fillText('Go!', canvas.width / 2 - 30, canvas.height / 2);
+        }
+        countdown--;
+
+        if (countdown < -1) {
             clearInterval(countdownInterval);
             gameInterval = setInterval(gameLoop, 1000 / 60);
+            document.addEventListener('keydown', controlBird);
         }
     }, 1000);
-
-    document.addEventListener('keydown', controlBird);
 }
 
 function controlBird(event) {
@@ -117,11 +124,11 @@ function updatePipes() {
         let pipeY = Math.floor(Math.random() * (canvas.height - difficultySettings.gap));
         pipes.push({ x: canvas.width, y: pipeY, width: 50, gap: difficultySettings.gap });
     }
-    
+
     pipes.forEach(pipe => {
         pipe.x -= difficultySettings.speed;
     });
-    
+
     if (pipes[0].x + pipes[0].width < 0) {
         pipes.shift();
         score++;
@@ -132,7 +139,7 @@ function checkCollisions() {
     if (bird.y + bird.height > canvas.height || bird.y < 0) {
         endGame();
     }
-    
+
     pipes.forEach(pipe => {
         if (bird.x < pipe.x + pipe.width && bird.x + bird.width > pipe.x &&
             (bird.y < pipe.y || bird.y + bird.height > pipe.y + pipe.gap)) {
@@ -141,19 +148,6 @@ function checkCollisions() {
     });
 }
 
-function endGame() {
-    clearInterval(gameInterval);
-    document.removeEventListener('keydown', controlBird);
-    
-    if (score > highestScores[currentDifficulty]) {
-        highestScores[currentDifficulty] = score;
-        saveHighestScores();
-        updateHighestScoresOverlay();
-    }
-    
-    document.getElementById('finalScore').innerText = 'Score: ' + score + ' | Highest: ' + highestScores[currentDifficulty];
-    document.getElementById('gameOverScreen').style.display = 'flex';
-}
 function endGame() {
     clearInterval(gameInterval);
     document.removeEventListener('keydown', controlBird);
@@ -217,3 +211,9 @@ window.addEventListener('keydown', function(e) {
         e.preventDefault();
     }
 });
+
+function drawStaticGame() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
+    ctx.drawImage(birdImage, bird.x, bird.y, bird.width, bird.height);
+}
