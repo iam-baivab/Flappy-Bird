@@ -79,7 +79,6 @@ function startGame(difficulty) {
     bird.velocity = 0;
     countdown = 3;
 
-    // Display static background and bird during countdown
     drawStaticGame();
 
     let countdownInterval = setInterval(() => {
