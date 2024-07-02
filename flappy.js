@@ -168,7 +168,7 @@ function endGame() {
         localStorage.setItem(currentDifficulty + 'Score', score);
     }
 
-    document.getElementById('finalScore').innerText = 'Score: ' + score + '\nHighest Score: ' + highestScores[currentDifficulty];
+    document.getElementById('finalScore').innerText = 'Score: ' + score + '\n\nHighest Score: ' + highestScores[currentDifficulty];
     document.getElementById('gameOverScreen').style.display = 'flex';
 }
 
