@@ -96,12 +96,13 @@ function startGame(difficulty) {
             clearInterval(countdownInterval);
             gameInterval = setInterval(gameLoop, 1000 / 60);
             document.addEventListener('keydown', controlBird);
+            canvas.addEventListener('click', controlBird);
         }
     }, 1000);
 }
 
 function controlBird(event) {
-    if (event.code === 'Space') {
+    if ((event.type === 'keydown' && event.code === 'Space') || event.type === 'click') {
         bird.velocity = bird.lift;
     }
 }
@@ -150,6 +151,7 @@ function checkCollisions() {
 function endGame() {
     clearInterval(gameInterval);
     document.removeEventListener('keydown', controlBird);
+    canvas.removeEventListener('click', controlBird);
 
     if (score > highestScores[currentDifficulty]) {
         highestScores[currentDifficulty] = score;
@@ -213,7 +215,6 @@ function drawGame() {
     ctx.font = '24px Arial';
     ctx.fillText('Score: ' + score, 10, 30);
 }
-
 
 window.addEventListener('keydown', function(e) {
     if(e.key === ' ' && e.target === document.body) {
