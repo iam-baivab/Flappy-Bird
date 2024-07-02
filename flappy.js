@@ -220,7 +220,7 @@ function drawGame() {
     
     ctx.font = '24px Arial';
     ctx.fillStyle = 'black';
-    ctx.fillText('Score: ' + score, 10, 30);
+    ctx.fillText('Score: ' + score, 60, 50);
 }
 
 window.addEventListener('keydown', function(e) {
