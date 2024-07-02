@@ -84,11 +84,17 @@ function startGame(difficulty) {
     let countdownInterval = setInterval(() => {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawStaticGame();
-        ctx.font = '48px Arial';
+        ctx.font = '72px "Press Start 2P"';
+        ctx.fillStyle = 'white';
+        ctx.strokeStyle = 'black';
+        ctx.lineWidth = 8;
+        ctx.textAlign = 'center';
         if (countdown > 0) {
-            ctx.fillText(countdown, canvas.width / 2 - 10, canvas.height / 2);
+            ctx.strokeText(countdown, canvas.width / 2, canvas.height / 2);
+            ctx.fillText(countdown, canvas.width / 2, canvas.height / 2);
         } else {
-            ctx.fillText('Go!', canvas.width / 2 - 30, canvas.height / 2);
+            ctx.strokeText('Go!', canvas.width / 2, canvas.height / 2);
+            ctx.fillText('Go!', canvas.width / 2, canvas.height / 2);
         }
         countdown--;
 
@@ -213,6 +219,7 @@ function drawGame() {
     });
     
     ctx.font = '24px Arial';
+    ctx.fillStyle = 'black';
     ctx.fillText('Score: ' + score, 10, 30);
 }
 
