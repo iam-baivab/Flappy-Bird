@@ -6,8 +6,16 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #009FBD;
     font-family: 'Press Start 2P', sans-serif;
+    background-image: url('assets/background.gif');
+    background-size: cover;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    background-color: rgba(0, 0, 0, 1);
+    color: white;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
 }
 
 #Mainmenu, .overlay {
