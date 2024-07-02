@@ -18,15 +18,17 @@ let highestScores = {
     advanced: localStorage.getItem('advancedScore') || 0
 };
 
+currentDifficulty = localStorage.getItem('currentDifficulty') || 'easy';
+
 document.addEventListener("DOMContentLoaded", function() {
     showMainMenu();
-    updateSelectedDifficulty(currentDifficulty || 'easy');
+    updateSelectedDifficulty(currentDifficulty);
 });
 
 function startplay() {
     hideAll();
     canvas.style.display = 'block';
-    startGame(currentDifficulty || 'easy');
+    startGame(currentDifficulty);
 }
 
 function showHighestScores() {
@@ -240,4 +242,5 @@ function drawStaticGame() {
 function updateSelectedDifficulty(difficulty) {
     const selectedDifficultySpan = document.getElementById('selectedDifficulty');
     selectedDifficultySpan.textContent = difficulty.charAt(0).toUpperCase() + difficulty.slice(1);
+    localStorage.setItem('currentDifficulty', difficulty);
 }
