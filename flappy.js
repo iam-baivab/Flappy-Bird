@@ -20,6 +20,7 @@ let highestScores = {
 
 document.addEventListener("DOMContentLoaded", function() {
     showMainMenu();
+    updateSelectedDifficulty(currentDifficulty || 'easy');
 });
 
 function startplay() {
@@ -60,6 +61,7 @@ function startGame(difficulty) {
     hideAll();
     canvas.style.display = 'block';
     currentDifficulty = difficulty;
+    updateSelectedDifficulty(difficulty);
 
     switch(difficulty) {
         case 'easy':
@@ -233,4 +235,9 @@ function drawStaticGame() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
     ctx.drawImage(birdImage, bird.x, bird.y, bird.width, bird.height);
+}
+
+function updateSelectedDifficulty(difficulty) {
+    const selectedDifficultySpan = document.getElementById('selectedDifficulty');
+    selectedDifficultySpan.textContent = difficulty.charAt(0).toUpperCase() + difficulty.slice(1);
 }
