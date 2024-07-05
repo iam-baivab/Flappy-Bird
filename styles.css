@@ -17,6 +17,9 @@
     text-align: center;
     color: white;
     font-family: 'Press Start 2P', sans-serif;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
 }
 
 #progress-bar-container {
@@ -118,13 +121,12 @@ canvas {
     font-family: 'Times New Roman', Times, serif;
 }
 
-/* Media Query for Responsive Design */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
     body {
         font-size: 16px;
     }
 
-    h1{
+    h1 {
         font-size: 50%;
     }
 
@@ -136,9 +138,15 @@ canvas {
         font-size: 16px;
         padding: 8px 16px;
     }
-}
 
-@media screen and (max-width: 768px) {
+    #progress-bar-container {
+        width: 100%;
+    }
+
+    #preloader-content h1 {
+        font-size: 25px;
+    }
+
     canvas {
         width: 80%;
         margin: 0 auto;
@@ -148,13 +156,6 @@ canvas {
 @media screen and (min-width: 769px) and (max-width: 1200px) {
     canvas {
         width: 60%;
-        margin: 0 auto;
-    }
-}
-
-@media screen and (min-width: 1201px) {
-    canvas {
-        width: 50%;
         margin: 0 auto;
     }
 }
