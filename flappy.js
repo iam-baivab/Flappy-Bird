@@ -5,7 +5,7 @@ window.addEventListener('load', function() {
     ];
     
     let loadedResources = 0;
-    const minLoadingTime = 1000;
+    const minLoadingTime = 700;
     const startTime = Date.now();
 
     function updatePreloader() {
