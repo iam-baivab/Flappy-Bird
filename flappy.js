@@ -1,3 +1,40 @@
+document.addEventListener("DOMContentLoaded", function() {
+    const preloader = document.getElementById('preloader');
+    const assetsToLoad = [
+        'assets/flappy_bird.gif',
+        'assets/flappy_bird_backdrop.png'
+    ];
+    let assetsLoaded = 0;
+    let minDisplayTimeReached = false;
+
+    function assetLoaded() {
+        assetsLoaded++;
+        if (assetsLoaded === assetsToLoad.length && minDisplayTimeReached) {
+            preloader.style.display = 'none';
+            showMainMenu();
+            updateSelectedDifficulty(currentDifficulty);
+        }
+    }
+
+    birdImage.onload = assetLoaded;
+    backgroundImage.onload = assetLoaded;
+
+    // Trigger loading of assets
+    birdImage.src = 'assets/flappy_bird.gif';
+    backgroundImage.src = 'assets/flappy_bird_backdrop.png';
+
+    // Ensure preloader is shown for at least 1000 milliseconds
+    setTimeout(() => {
+        minDisplayTimeReached = true;
+        if (assetsLoaded === assetsToLoad.length) {
+            preloader.style.display = 'none';
+            showMainMenu();
+            updateSelectedDifficulty(currentDifficulty);
+        }
+    }, 1000);
+});
+
+
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 let birdImage = new Image();
