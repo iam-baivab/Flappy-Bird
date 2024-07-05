@@ -6,7 +6,6 @@ Flappy Bird is a 2013 casual mobile game developed by Vietnamese video game arti
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Project Structure](#project-structure)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -23,7 +22,7 @@ Flappy Bird is a 2013 casual mobile game developed by Vietnamese video game arti
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/flappy-bird.git
+    git clone https://github.com/iam-baivab/flappy-bird.git
     ```
 2. Navigate to the project directory:
     ```bash
@@ -48,22 +47,6 @@ Flappy Bird is a 2013 casual mobile game developed by Vietnamese video game arti
    - **About**: Information about the game.
    - **Reset**: Reset the highest scores.
 
-## Project Structure
-
-```
-flappy-bird/
-│
-├── assets/
-│   ├── background.gif
-│   ├── flappy_bird.gif
-│   ├── flappy_bird_backdrop.png
-│   └── favicon_2.png
-│
-├── index.html
-├── styles.css
-└── flappy.js
-```
-
 ## Contributing
 
 Contributions are welcome! Please fork the repository and create a pull request with your changes.
@@ -78,6 +61,3 @@ Contributions are welcome! Please fork the repository and create a pull request 
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
----
-
-Feel free to customize this README further based on your project's specific requirements and details.
