@@ -152,8 +152,12 @@ canvas {
     }
 
     canvas {
-        width: 80%;
+        width: 90vw;
+        max-width: 600px;
+        height: 70vh;
+        max-height: 400px;
         margin: 0 auto;
+        display: block;
     }
 }
 
