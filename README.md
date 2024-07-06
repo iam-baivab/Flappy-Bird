@@ -1,5 +1,9 @@
 # Flappy Bird
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
 Flappy Bird is a 2013 casual mobile game developed by Vietnamese video game artist and programmer Dong Nguyen. This project is a web-based version of the game with enhanced features such as difficulty levels, highest scores tracking, and a preloader animation.
+
+<img src="assets\icon.png" height="200px">
 
 ## Table of Contents
 
@@ -17,6 +21,11 @@ Flappy Bird is a 2013 casual mobile game developed by Vietnamese video game arti
 - **About**: Information about the game.
 - **Reset**: Reset the highest scores.
 - **Preloader**: Animated preloader to ensure all assets are loaded before starting the game.
+
+## UI 🌐 [Live View](https://playflappybird.pages.dev/)
+<img src="assets\play1.png">
+<img src="assets\play2.png">
+<img src="assets\play3.png">
 
 ## Installation
 
