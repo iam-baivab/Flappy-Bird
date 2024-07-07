@@ -1,6 +1,7 @@
 # Flappy Bird
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
+
 Flappy Bird is a 2013 casual mobile game developed by Vietnamese video game artist and programmer Dong Nguyen. This project is a web-based version of the game with enhanced features such as difficulty levels, highest scores tracking, and a preloader animation.
 
 <img src="assets\icon.png" height="200px">
@@ -70,5 +71,7 @@ Contributions are welcome! Please fork the repository and create a pull request 
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
+[license-shield]: https://img.shields.io/badge/License-MIT-red.svg
+[license-url]: https://github.com/iam-baivab/News-Scraping-using-BeautyfulSoup-Selenium-with-Django/blob/main/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat&logo=linkedin&colorB=blue
-[linkedin-url]: https://www.linkedin.com/in/baivabsarkar/ 
+[linkedin-url]: https://www.linkedin.com/in/baivabsarkar/
